@@ -1,0 +1,84 @@
+.facetada {
+  position: relative;
+  overflow: hidden;
+  background: var(--lasca);
+  clip-path: var(--corte);
+}
+
+.facetada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.facetada__lasca {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.32);
+}
+
+/* ---------- Hero: borda esquerda em "raio" ---------- */
+.facetada--hero {
+  --corte: polygon(34% 0, 100% 0, 100% 100%, 6% 100%, 20% 66%, 11% 66%, 27% 31%, 19% 31%);
+}
+
+.facetada--hero .facetada__lasca--a {
+  clip-path: polygon(34% 0, 46% 0, 31% 31%, 27% 31%);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.facetada--hero .facetada__lasca--b {
+  clip-path: polygon(20% 66%, 34% 66%, 22% 100%, 6% 100%);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ---------- Destaque: card largo ---------- */
+.facetada--destaque {
+  --corte: polygon(30% 0, 100% 0, 100% 100%, 2% 100%, 18% 62%, 9% 62%, 25% 27%, 16% 27%);
+}
+
+.facetada--destaque .facetada__lasca--a {
+  clip-path: polygon(30% 0, 44% 0, 30% 27%, 25% 27%);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.facetada--destaque .facetada__lasca--b {
+  clip-path: polygon(18% 62%, 30% 62%, 16% 100%, 2% 100%);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Card da galeria ---------- */
+.facetada--card {
+  --corte: polygon(0 12%, 58% 0, 100% 7%, 100% 90%, 42% 100%, 0 100%);
+}
+
+.facetada--card .facetada__lasca--a {
+  clip-path: polygon(58% 0, 100% 7%, 100% 28%, 76% 18%);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.facetada--card .facetada__lasca--b {
+  clip-path: polygon(0 62%, 22% 54%, 34% 100%, 0 100%);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Seção escura ---------- */
+.facetada--metodo {
+  --corte: polygon(0 0, 100% 0, 100% 100%, 16% 100%, 0 84%);
+  background: var(--mata-2);
+}
+
+.facetada--metodo .facetada__lasca {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.facetada--metodo .facetada__lasca--a {
+  clip-path: polygon(0 0, 30% 0, 52% 100%, 22% 100%);
+}
+
+.facetada--metodo .facetada__lasca--b {
+  clip-path: polygon(62% 0, 78% 0, 100% 60%, 100% 100%);
+  background: rgba(255, 255, 255, 0.08);
+}

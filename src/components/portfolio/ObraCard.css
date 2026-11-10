@@ -1,0 +1,67 @@
+.obra-card {
+  border-inline: 1px solid var(--linha);
+}
+
+.obra-card__alvo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem clamp(16px, 1.8vw, 24px);
+  border: 0;
+  background: var(--branco);
+  text-align: left;
+  cursor: zoom-in;
+}
+
+.obra-card__titulo {
+  font-size: var(--t-h3);
+}
+
+.obra-card__detalhes {
+  min-height: 2.6em;
+  margin-top: 0.75rem;
+  font-size: var(--t-micro);
+  line-height: 1.6;
+  color: var(--pedra);
+}
+
+.obra-card__foto {
+  aspect-ratio: 4 / 3;
+  margin-top: 1.4rem;
+}
+
+.obra-card__foto .selo-ilustrativa {
+  right: auto;
+  left: 10px;
+}
+
+.obra-card__alvo:hover .obra-card__foto img {
+  transform: scale(1.05);
+}
+
+.obra-card__rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  font-size: var(--t-micro);
+  font-weight: 600;
+}
+
+.obra-card__fotos {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--pedra);
+  font-weight: 500;
+}
+
+.obra-card__fotos svg {
+  transition: transform 0.3s var(--ease);
+}
+
+.obra-card__alvo:hover .obra-card__fotos svg {
+  transform: translateX(4px);
+  color: var(--tinta);
+}

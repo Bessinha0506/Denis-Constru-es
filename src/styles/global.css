@@ -1,0 +1,189 @@
+/* ==============================================================
+   Denis Construções — tokens e base
+   ============================================================== */
+
+:root {
+  /* Cor */
+  --branco: #ffffff;
+  --nevoa: #f2f3f0;          /* fundo das seções claras */
+  --lasca: #e3e6e0;          /* triângulos e diagonais de fundo */
+  --linha: #dcdfd9;          /* bordas finas */
+  --mata: #17251e;           /* verde-escuro das seções escuras */
+  --mata-2: #213029;
+  --mata-3: #2d3e35;
+  --broto: #cdea70;          /* verde-limão de ação */
+  --broto-forte: #bedd56;
+  --tinta: #141c17;          /* texto principal */
+  --pedra: #626a64;          /* texto secundário */
+  --pedra-clara: #a3ada6;    /* texto secundário sobre o escuro */
+
+  /* Tipo */
+  --fonte: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --t-display: clamp(2.4rem, 1.5rem + 2.7vw, 3.9rem);
+  --t-h2: clamp(2rem, 1.45rem + 2.2vw, 3.25rem);
+  --t-h3: clamp(1.1rem, 1rem + 0.35vw, 1.3rem);
+  --t-corpo: 1rem;
+  --t-pequeno: 0.875rem;
+  --t-micro: 0.78rem;
+
+  /* Espaço */
+  --gutter: clamp(20px, 5vw, 64px);
+  --largura: 1240px;
+  --secao: clamp(80px, 9vw, 136px);
+
+  --raio: 6px;
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  font-size: var(--t-corpo);
+  line-height: 1.6;
+  color: var(--tinta);
+  background: var(--branco);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--mata);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.escuro :focus-visible {
+  outline-color: var(--broto);
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--largura) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.pular-conteudo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  padding: 0.7rem 1rem;
+  border-radius: var(--raio);
+  background: var(--mata);
+  color: var(--branco);
+  font-size: var(--t-pequeno);
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform 0.25s var(--ease);
+}
+
+.pular-conteudo:focus {
+  transform: none;
+}
+
+/* Título de card sublinhado, como na referência */
+.titulo-sublinhado {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28em;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Revelação ao rolar — discreta, acontece uma vez */
+.revelar {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.9s var(--ease),
+    transform 0.9s var(--ease);
+  transition-delay: var(--atraso, 0ms);
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .revelar {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,117 @@
+.metodo {
+  position: relative;
+  padding-block: var(--secao);
+  background: var(--mata);
+  color: var(--branco);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Lascas diagonais no canto superior esquerdo */
+.metodo::before,
+.metodo::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.metodo::before {
+  width: 170px;
+  height: 120px;
+  background: var(--mata-3);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.metodo::after {
+  width: 260px;
+  height: 200px;
+  background: var(--mata-2);
+  clip-path: polygon(70% 0, 100% 0, 18% 100%, 0 100%, 0 80%);
+}
+
+.metodo__topo {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+
+.metodo__texto {
+  padding-top: clamp(0px, 2vw, 24px);
+}
+
+.metodo__texto h2 {
+  font-size: var(--t-h2);
+  max-width: 15ch;
+}
+
+.metodo__texto p {
+  max-width: 46ch;
+  margin-top: 1.5rem;
+  font-size: var(--t-pequeno);
+  line-height: 1.75;
+  color: var(--pedra-clara);
+}
+
+.metodo__texto .botao {
+  margin-top: 2rem;
+}
+
+.metodo__foto .facetada {
+  aspect-ratio: 16 / 11;
+}
+
+.metodo__subtitulo {
+  margin-top: clamp(56px, 7vw, 88px);
+  font-size: var(--t-pequeno);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.metodo__lista {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 3vw, 44px);
+  margin: 1.75rem 0 0;
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--mata-3);
+  list-style: none;
+}
+
+.compromisso svg {
+  color: var(--broto);
+}
+
+.compromisso h4 {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.compromisso p {
+  margin-top: 0.5rem;
+  font-size: var(--t-micro);
+  line-height: 1.65;
+  color: var(--pedra-clara);
+}
+
+@media (max-width: 900px) {
+  .metodo__topo {
+    grid-template-columns: 1fr;
+  }
+
+  .metodo__lista {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2.25rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .metodo__lista {
+    grid-template-columns: 1fr;
+  }
+}

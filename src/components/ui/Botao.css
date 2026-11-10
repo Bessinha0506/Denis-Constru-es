@@ -1,0 +1,63 @@
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 46px;
+  padding: 0 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--raio);
+  font-size: var(--t-pequeno);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.botao--pequeno {
+  min-height: 38px;
+  padding: 0 0.95rem;
+  font-size: var(--t-micro);
+}
+
+.botao__seta {
+  flex: none;
+  transition: transform 0.3s var(--ease);
+}
+
+.botao:hover .botao__seta {
+  transform: translateX(3px);
+}
+
+.botao--broto {
+  background: var(--broto);
+  color: var(--mata);
+}
+
+.botao--broto:hover {
+  background: var(--broto-forte);
+}
+
+.botao--contorno {
+  border-color: currentColor;
+  background: transparent;
+}
+
+.botao--contorno:hover {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: var(--branco);
+}
+
+.botao--escuro {
+  background: var(--mata);
+  color: var(--branco);
+}
+
+.botao--escuro:hover {
+  background: var(--mata-3);
+}

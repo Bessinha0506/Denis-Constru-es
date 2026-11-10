@@ -1,0 +1,54 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--mata);
+}
+
+.logo__marca {
+  width: 32px;
+  height: 30px;
+  flex: none;
+}
+
+.logo__telhado {
+  fill: var(--mata);
+}
+
+.logo__parede {
+  fill: currentColor;
+}
+
+.logo__texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo__nome {
+  font-size: 1.28rem;
+  font-weight: 700;
+  font-stretch: 85%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.logo__sub {
+  margin-top: 3px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--pedra);
+}
+
+.logo--claro {
+  color: var(--branco);
+}
+
+.logo--claro .logo__telhado {
+  fill: var(--broto);
+}
+
+.logo--claro .logo__sub {
+  color: var(--pedra-clara);
+}

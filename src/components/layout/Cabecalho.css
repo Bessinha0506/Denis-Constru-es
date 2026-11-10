@@ -1,0 +1,193 @@
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease);
+}
+
+/* O desfoque fica num pseudo-elemento: backdrop-filter no próprio header
+   prenderia o menu móvel (position: fixed) dentro dele. */
+.cabecalho::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(1.4) blur(12px);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+}
+
+.cabecalho--aberto::before {
+  background: var(--branco);
+}
+
+.cabecalho--rolou {
+  border-bottom-color: var(--linha);
+}
+
+.cabecalho__barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 76px;
+}
+
+.cabecalho__logo {
+  flex: none;
+}
+
+.cabecalho__nav ul {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cabecalho__nav a {
+  position: relative;
+  font-size: var(--t-pequeno);
+  font-weight: 500;
+  color: var(--tinta);
+  padding-block: 0.4rem;
+}
+
+.cabecalho__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--broto-forte);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.cabecalho__nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.cabecalho__fone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: none;
+  padding: 4px 1rem 4px 4px;
+  border-radius: 999px;
+  background: var(--broto);
+  color: var(--mata);
+  font-size: var(--t-micro);
+  font-weight: 600;
+  transition: background-color 0.25s var(--ease);
+}
+
+.cabecalho__fone:hover {
+  background: var(--broto-forte);
+}
+
+.cabecalho__fone-icone {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--mata);
+  color: var(--broto);
+}
+
+.cabecalho__menu {
+  display: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--branco);
+  cursor: pointer;
+}
+
+/* ---------- Menu móvel ---------- */
+.menu-movel {
+  position: fixed;
+  inset: 76px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem var(--gutter) 2.5rem;
+  background: var(--branco);
+  overflow-y: auto;
+}
+
+.menu-movel[hidden] {
+  display: none;
+}
+
+.menu-movel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-movel li {
+  border-bottom: 1px solid var(--linha);
+  animation: menu-entra 0.5s var(--ease) both;
+  animation-delay: calc(var(--i) * 45ms);
+}
+
+.menu-movel li a {
+  display: block;
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.menu-movel__fone {
+  margin-top: 2rem;
+  width: 100%;
+  min-height: 52px;
+}
+
+@keyframes menu-entra {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@media (max-width: 1080px) {
+  .cabecalho__nav {
+    display: none;
+  }
+
+  .cabecalho__menu {
+    display: grid;
+  }
+
+  .cabecalho__barra {
+    gap: 0.75rem;
+  }
+
+  .cabecalho__fone {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .cabecalho__fone-numero {
+    display: none;
+  }
+
+  .cabecalho__fone {
+    padding: 4px;
+  }
+
+  .cabecalho__fone-icone {
+    width: 36px;
+    height: 36px;
+  }
+}
