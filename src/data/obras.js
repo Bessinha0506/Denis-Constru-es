@@ -5,7 +5,8 @@
  * nova obra, copie um bloco, mude o `id` e preencha os campos.
  *
  * Fotos reais: coloque os arquivos em  public/obras/<id-da-obra>/
- * e referencie assim:  capa: '/obras/residencia-01/fachada.jpg'
+ * e referencie assim:  capa: import.meta.env.BASE_URL + 'obras/residencia-01/fachada.jpg'
+ * (o BASE_URL inclui o caminho do site no GitHub Pages, ex.: /Denis-Constru-es/)
  *
  * Campos:
  *  id           identificador único, sem espaços
