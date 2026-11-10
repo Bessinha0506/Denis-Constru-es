@@ -61,7 +61,7 @@
   display: grid;
   grid-template-columns: 0.95fr 1.15fr;
   min-height: 380px;
-  background: var(--superficie);
+  background: var(--branco);
   border: 1px solid var(--linha);
   overflow: hidden;
 }
@@ -225,8 +225,4 @@
   .cartao-cor__foto {
     min-height: 220px;
   }
-}
-
-[data-tema='escuro'] .destaque::after {
-  background: rgba(255, 255, 255, 0.06);
 }

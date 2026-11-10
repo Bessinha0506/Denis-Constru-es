@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--marca-texto);
+  color: var(--mata);
 }
 
 .logo__marca {
@@ -16,7 +16,7 @@
 }
 
 .logo__destaque {
-  fill: var(--marca-destaque);
+  fill: #6b8a1f;
 }
 
 .logo__texto {

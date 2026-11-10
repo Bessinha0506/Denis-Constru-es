@@ -121,7 +121,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-[data-tema='escuro'] .sobre__faixa::after {
-  background: rgba(255, 255, 255, 0.06);
-}

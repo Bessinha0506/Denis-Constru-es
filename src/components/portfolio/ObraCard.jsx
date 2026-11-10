@@ -10,7 +10,7 @@ export default function ObraCard({ obra, onAbrir }) {
 
   return (
     <article className="obra-card">
-      <button type="button" className="obra-card__alvo" onClick={() => onAbrir(obra)}>
+      <button type="button" data-inclinar className="obra-card__alvo" onClick={() => onAbrir(obra)}>
         <h3 className="obra-card__titulo titulo-sublinhado">{obra.titulo}</h3>
         <p className="obra-card__detalhes">{obra.descricao || detalhes}</p>
 

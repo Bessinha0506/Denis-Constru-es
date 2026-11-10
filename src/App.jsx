@@ -8,10 +8,14 @@ import Sobre from './sections/Sobre';
 import Metodo from './sections/Metodo';
 import Portfolio from './sections/Portfolio';
 import Chamada from './sections/Chamada';
+import FaixaRolante from './components/ui/FaixaRolante';
+import BotaoFlutuante from './components/ui/BotaoFlutuante';
+import useEfeitos from './hooks/useEfeitos';
 
 export default function App() {
   const [obraAberta, setObraAberta] = useState(null);
   const fecharGaleria = useCallback(() => setObraAberta(null), []);
+  useEfeitos();
 
   return (
     <>
@@ -22,12 +26,14 @@ export default function App() {
       <main id="conteudo">
         <Hero onAbrirObra={setObraAberta} />
         <ObrasDestaque onAbrirObra={setObraAberta} />
+        <FaixaRolante />
         <Sobre />
         <Metodo />
         <Portfolio onAbrirObra={setObraAberta} />
         <Chamada />
       </main>
       <Rodape />
+      <BotaoFlutuante />
 
       {obraAberta && <Galeria obra={obraAberta} onFechar={fecharGaleria} />}
     </>

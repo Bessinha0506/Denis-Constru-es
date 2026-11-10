@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 import ObraCard from '../components/portfolio/ObraCard';
+import useVisivel from '../hooks/useVisivel';
+import TituloAnimado from '../components/ui/TituloAnimado';
 import Revelar from '../components/ui/Revelar';
 import { obras, rotuloStatus } from '../data/obras';
 import './Portfolio.css';
@@ -8,6 +10,7 @@ const filtrosStatus = { entregue: 'Entregues', andamento: 'Em andamento' };
 
 export default function Portfolio({ onAbrirObra }) {
   const [filtro, setFiltro] = useState('todas');
+  const [gradeRef, gradeVisivel] = useVisivel({ limiar: 0.1 });
 
   // Os filtros só aparecem para os status que existem de fato nas obras cadastradas
   const filtros = useMemo(() => {
@@ -21,7 +24,7 @@ export default function Portfolio({ onAbrirObra }) {
     <section id="portfolio" className="portfolio">
       <div className="container">
         <Revelar className="portfolio__cabeca">
-          <h2>Portfólio de obras</h2>
+          <TituloAnimado texto="Portfólio de obras" />
           <p>Toque em uma obra para ver todas as fotos.</p>
         </Revelar>
 
@@ -41,9 +44,9 @@ export default function Portfolio({ onAbrirObra }) {
           </div>
         )}
 
-        <ul className="portfolio__grade">
-          {visiveis.map((obra) => (
-            <li key={obra.id} className="portfolio__item">
+        <ul ref={gradeRef} className={`portfolio__grade ${gradeVisivel ? 'visivel' : ''}`}>
+          {visiveis.map((obra, i) => (
+            <li key={`${filtro}-${obra.id}`} className="portfolio__item" style={{ '--i': i }}>
               <ObraCard obra={obra} onAbrir={onAbrirObra} />
             </li>
           ))}

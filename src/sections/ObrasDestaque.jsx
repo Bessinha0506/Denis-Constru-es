@@ -1,5 +1,6 @@
 import { Images } from 'lucide-react';
 import ImagemFacetada from '../components/ui/ImagemFacetada';
+import TituloAnimado from '../components/ui/TituloAnimado';
 import Revelar from '../components/ui/Revelar';
 import SeloIlustrativa from '../components/portfolio/SeloIlustrativa';
 import { obras, redimensionar, rotuloStatus } from '../data/obras';
@@ -13,7 +14,7 @@ export default function ObrasDestaque({ onAbrirObra }) {
     <section id="obras" className="destaque">
       <div className="container">
         <Revelar className="destaque__cabeca">
-          <h2>Casas que já saíram do papel</h2>
+          <TituloAnimado texto="Casas que já saíram do papel" />
           <p>
             Cada obra é acompanhada do início ao fim pelo próprio Denis. Estas são algumas das residências
             construídas pela Denis Construções.
@@ -21,7 +22,7 @@ export default function ObrasDestaque({ onAbrirObra }) {
         </Revelar>
 
         <div className="destaque__grade">
-          <Revelar as="article" className="cartao-largo">
+          <Revelar as="article" efeito="esquerda" className="cartao-largo">
             <div className="cartao-largo__texto">
               <h3 className="titulo-sublinhado">{principal.titulo}</h3>
               <div className="cartao-largo__meta">
@@ -40,7 +41,7 @@ export default function ObrasDestaque({ onAbrirObra }) {
               onClick={() => onAbrirObra(principal)}
               aria-label={`Abrir galeria: ${principal.titulo}`}
             >
-              <ImagemFacetada forma="destaque" src={redimensionar(principal.capa, 1000)} alt="" />
+              <ImagemFacetada forma="destaque" src={redimensionar(principal.capa, 1000)} alt="" paralaxe={0.06} />
               {principal.ilustrativa && <SeloIlustrativa />}
             </button>
           </Revelar>
@@ -49,10 +50,11 @@ export default function ObrasDestaque({ onAbrirObra }) {
             <Revelar
               as="article"
               key={obra.id}
-              atraso={(i + 1) * 120}
+              atraso={(i + 1) * 150}
+              efeito="zoom"
               className={`cartao-cor ${i === 0 ? 'cartao-cor--broto' : 'cartao-cor--mata'}`}
             >
-              <button type="button" className="cartao-cor__alvo" onClick={() => onAbrirObra(obra)}>
+              <button type="button" data-inclinar className="cartao-cor__alvo" onClick={() => onAbrirObra(obra)}>
                 <h3 className="titulo-sublinhado">{obra.titulo}</h3>
                 <div className="cartao-cor__foto">
                   <img src={redimensionar(obra.capa, 700)} alt="" loading="lazy" />

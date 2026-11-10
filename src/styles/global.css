@@ -17,16 +17,6 @@
   --pedra: #626a64;          /* texto secundário */
   --pedra-clara: #a3ada6;    /* texto secundário sobre o escuro */
 
-  /* Papéis (mudam no modo escuro) */
-  --fundo: var(--branco);              /* fundo da página e do cabeçalho */
-  --fundo-vidro: rgba(255, 255, 255, 0.92);
-  --superficie: var(--branco);         /* cards, campos, filtros */
-  --marca-texto: var(--mata);          /* cor principal da logo */
-  --marca-destaque: #6b8a1f;           /* tijolo em destaque da logo */
-  --contorno: var(--mata);             /* foco do teclado e campos */
-  --ativo-fundo: var(--mata);          /* filtro selecionado */
-  --ativo-texto: var(--branco);
-
   /* Tipo */
   --fonte: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --t-display: clamp(2.4rem, 1.5rem + 2.7vw, 3.9rem);
@@ -43,27 +33,6 @@
 
   --raio: 6px;
   --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
-
-  color-scheme: light;
-}
-
-/* ---------- Modo escuro: verdes da própria marca ---------- */
-:root[data-tema='escuro'] {
-  --fundo: #0f1813;
-  --fundo-vidro: rgba(15, 24, 19, 0.9);
-  --superficie: #1a2921;
-  --nevoa: #131e18;
-  --lasca: #22322a;
-  --linha: #2c3d34;
-  --tinta: #e9ede6;
-  --pedra: #a8b2ab;
-  --marca-texto: var(--branco);
-  --marca-destaque: var(--broto);
-  --contorno: var(--broto);
-  --ativo-fundo: var(--broto);
-  --ativo-texto: var(--mata);
-
-  color-scheme: dark;
 }
 
 *,
@@ -84,8 +53,7 @@ body {
   font-size: var(--t-corpo);
   line-height: 1.6;
   color: var(--tinta);
-  background: var(--fundo);
-  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+  background: var(--branco);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -129,7 +97,7 @@ input {
 }
 
 :focus-visible {
-  outline: 2px solid var(--contorno);
+  outline: 2px solid var(--mata);
   outline-offset: 3px;
   border-radius: 3px;
 }

@@ -1,6 +1,7 @@
 import { HardHat, MessageCircle, Ruler, Users } from 'lucide-react';
 import Botao from '../components/ui/Botao';
 import ImagemFacetada from '../components/ui/ImagemFacetada';
+import TituloAnimado from '../components/ui/TituloAnimado';
 import Revelar from '../components/ui/Revelar';
 import { compromissos, imagens } from '../data/conteudo';
 import { linkWhatsApp } from '../data/empresa';
@@ -13,8 +14,8 @@ export default function Metodo() {
     <section id="metodo" className="metodo escuro">
       <div className="container">
         <div className="metodo__topo">
-          <Revelar className="metodo__texto">
-            <h2>Obra bem conduzida avança etapa por etapa, sem surpresas.</h2>
+          <Revelar efeito="esquerda" className="metodo__texto">
+            <TituloAnimado texto="Obra bem conduzida avança etapa por etapa, sem surpresas." />
             <p>
               Planejar a sequência dos serviços, ter o material certo no momento certo e conferir o que foi feito
               antes de seguir: é assim que uma casa fica pronta com qualidade.
@@ -24,8 +25,8 @@ export default function Metodo() {
             </Botao>
           </Revelar>
 
-          <Revelar atraso={150} className="metodo__foto">
-            <ImagemFacetada forma="metodo" src={imagens.metodo} alt="Canteiro de obras em andamento" />
+          <Revelar atraso={150} efeito="direita" className="metodo__foto">
+            <ImagemFacetada forma="metodo" src={imagens.metodo} alt="Canteiro de obras em andamento" paralaxe={0.08} />
           </Revelar>
         </div>
 
@@ -34,7 +35,7 @@ export default function Metodo() {
           {compromissos.map((item, i) => {
             const Icone = icones[item.icone];
             return (
-              <Revelar as="li" key={item.titulo} atraso={i * 90} className="compromisso">
+              <Revelar as="li" key={item.titulo} atraso={i * 120} className="compromisso">
                 {Icone && <Icone size={22} strokeWidth={1.6} aria-hidden="true" />}
                 <h4>{item.titulo}</h4>
                 <p>{item.texto}</p>

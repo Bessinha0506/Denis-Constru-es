@@ -9,17 +9,6 @@
       content="Denis Construções: construção de residências conduzida pelo mestre de obras Denis, da fundação ao acabamento."
     />
     <meta name="theme-color" content="#17251E" />
-    <script>
-      // Aplica o tema antes de desenhar a página, para não piscar.
-      (function () {
-        var t = null;
-        try { t = localStorage.getItem('tema'); } catch (e) {}
-        if (t !== 'claro' && t !== 'escuro') {
-          t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
-        }
-        document.documentElement.dataset.tema = t;
-      })();
-    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

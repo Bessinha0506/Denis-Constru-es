@@ -1,4 +1,5 @@
 import ImagemFacetada from '../components/ui/ImagemFacetada';
+import TituloAnimado from '../components/ui/TituloAnimado';
 import FormContato from '../components/ui/FormContato';
 import { imagens } from '../data/conteudo';
 import { obras, redimensionar } from '../data/obras';
@@ -11,7 +12,13 @@ export default function Hero({ onAbrirObra }) {
     <section id="inicio" className="hero">
       <div className="container hero__grade">
         <div className="hero__texto">
-          <h1 className="hero__titulo">Sua casa, construída do alicerce à entrega das chaves.</h1>
+          <TituloAnimado
+            as="h1"
+            className="hero__titulo"
+            texto="Sua casa, construída do alicerce à entrega das chaves."
+            imediato
+            atraso={150}
+          />
           <p className="hero__lead">
             Denis é mestre de obras e conduz pessoalmente a construção de residências: acompanha cada etapa no
             canteiro, coordena a equipe e cuida para que o projeto saia do papel como foi pensado.
@@ -23,7 +30,7 @@ export default function Hero({ onAbrirObra }) {
             <p>Algumas casas construídas pelo Denis</p>
             <ul>
               {miniaturas.map((obra) => (
-                <li key={obra.id}>
+                <li key={obra.id} style={{ '--i': miniaturas.indexOf(obra) }}>
                   <button type="button" onClick={() => onAbrirObra(obra)} aria-label={`Ver fotos: ${obra.titulo}`}>
                     <img src={redimensionar(obra.capa, 240)} alt="" loading="eager" />
                   </button>
@@ -45,6 +52,7 @@ export default function Hero({ onAbrirObra }) {
         src={imagens.hero}
         alt="Fachada de residência moderna com jardim"
         carregar="eager"
+        paralaxe={0.12}
       />
     </section>
   );

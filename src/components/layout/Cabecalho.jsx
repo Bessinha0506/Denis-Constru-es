@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, Phone, X } from 'lucide-react';
 import Logo from '../ui/Logo';
-import BotaoTema from '../ui/BotaoTema';
 import { navegacao } from '../../data/conteudo';
 import { empresa, linkWhatsApp } from '../../data/empresa';
 import './Cabecalho.css';
@@ -9,9 +8,19 @@ import './Cabecalho.css';
 export default function Cabecalho() {
   const [rolou, setRolou] = useState(false);
   const [aberto, setAberto] = useState(false);
+  const [oculto, setOculto] = useState(false);
 
   useEffect(() => {
-    const aoRolar = () => setRolou(window.scrollY > 12);
+    let ultimoY = window.scrollY;
+    const aoRolar = () => {
+      const y = window.scrollY;
+      setRolou(y > 12);
+      // Some ao descer e volta ao subir, liberando a tela para as fotos
+      if (Math.abs(y - ultimoY) > 6) {
+        setOculto(y > ultimoY && y > 420);
+        ultimoY = y;
+      }
+    };
     aoRolar();
     window.addEventListener('scroll', aoRolar, { passive: true });
     return () => window.removeEventListener('scroll', aoRolar);
@@ -27,7 +36,7 @@ export default function Cabecalho() {
   const fechar = () => setAberto(false);
 
   return (
-    <header className={`cabecalho ${rolou ? 'cabecalho--rolou' : ''} ${aberto ? 'cabecalho--aberto' : ''}`}>
+    <header className={`cabecalho ${rolou ? 'cabecalho--rolou' : ''} ${aberto ? 'cabecalho--aberto' : ''} ${oculto && !aberto ? 'cabecalho--oculto' : ''}`}>
       <div className="container cabecalho__barra">
         <a href="#inicio" className="cabecalho__logo" aria-label="Denis Construções — início" onClick={fechar}>
           <Logo />
@@ -44,8 +53,6 @@ export default function Cabecalho() {
             ))}
           </ul>
         </nav>
-
-        <BotaoTema className="cabecalho__tema" />
 
         <a className="cabecalho__fone" href={linkWhatsApp()} target="_blank" rel="noopener noreferrer">
           <span className="cabecalho__fone-icone">
@@ -66,6 +73,8 @@ export default function Cabecalho() {
           {aberto ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
+
+      <span className="cabecalho__progresso" aria-hidden="true" />
 
       <div id="menu-movel" className="menu-movel" hidden={!aberto}>
         <nav aria-label="Navegação móvel">
