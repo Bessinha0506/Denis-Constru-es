@@ -22,7 +22,7 @@ export default function ObrasDestaque({ onAbrirObra }) {
         </Revelar>
 
         <div className="destaque__grade">
-          <Revelar as="article" efeito="esquerda" className="cartao-largo">
+          <Revelar as="article" className="cartao-largo">
             <div className="cartao-largo__texto">
               <h3 className="titulo-sublinhado">{principal.titulo}</h3>
               <div className="cartao-largo__meta">
@@ -50,8 +50,6 @@ export default function ObrasDestaque({ onAbrirObra }) {
             <Revelar
               as="article"
               key={obra.id}
-              atraso={(i + 1) * 150}
-              efeito="zoom"
               className={`cartao-cor ${i === 0 ? 'cartao-cor--broto' : 'cartao-cor--mata'}`}
             >
               <button type="button" data-inclinar className="cartao-cor__alvo" onClick={() => onAbrirObra(obra)}>
