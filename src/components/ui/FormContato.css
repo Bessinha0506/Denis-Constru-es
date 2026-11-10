@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 440px;
   padding: 6px 6px 6px 1rem;
-  background: var(--branco);
+  background: var(--superficie);
   border: 1px solid var(--linha);
   border-radius: var(--raio);
   transition:
@@ -14,7 +14,7 @@
 }
 
 .form-contato:focus-within {
-  border-color: var(--mata);
+  border-color: var(--contorno);
   box-shadow: 0 0 0 3px rgba(23, 37, 30, 0.08);
 }
 

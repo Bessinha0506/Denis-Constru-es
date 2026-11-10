@@ -9,7 +9,8 @@
   height: 100%;
   padding: 1.5rem clamp(16px, 1.8vw, 24px);
   border: 0;
-  background: var(--branco);
+  background: var(--superficie);
+  color: var(--tinta);
   text-align: left;
   cursor: zoom-in;
 }

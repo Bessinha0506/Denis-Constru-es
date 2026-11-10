@@ -50,7 +50,7 @@
 .botao--contorno:hover {
   background: var(--tinta);
   border-color: var(--tinta);
-  color: var(--branco);
+  color: var(--fundo);
 }
 
 .botao--escuro {

@@ -2,21 +2,21 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--mata);
+  color: var(--marca-texto);
 }
 
 .logo__marca {
-  width: 32px;
-  height: 30px;
+  width: 31px;
+  height: 34px;
   flex: none;
 }
 
-.logo__telhado {
-  fill: var(--mata);
+.logo__tijolos {
+  fill: currentColor;
 }
 
-.logo__parede {
-  fill: currentColor;
+.logo__destaque {
+  fill: var(--marca-destaque);
 }
 
 .logo__texto {
@@ -45,7 +45,7 @@
   color: var(--branco);
 }
 
-.logo--claro .logo__telhado {
+.logo--claro .logo__destaque {
   fill: var(--broto);
 }
 

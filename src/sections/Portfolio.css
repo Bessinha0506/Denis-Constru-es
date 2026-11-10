@@ -1,6 +1,6 @@
 .portfolio {
   padding-block: var(--secao);
-  background: var(--branco);
+  background: var(--fundo);
 }
 
 .portfolio__cabeca {
@@ -30,7 +30,8 @@
   padding: 0 1rem;
   border: 1px solid var(--linha);
   border-radius: 999px;
-  background: var(--branco);
+  background: var(--superficie);
+  color: var(--tinta);
   font-size: var(--t-micro);
   font-weight: 600;
   cursor: pointer;
@@ -45,9 +46,9 @@
 }
 
 .portfolio__filtro[aria-pressed='true'] {
-  background: var(--mata);
-  border-color: var(--mata);
-  color: var(--branco);
+  background: var(--ativo-fundo);
+  border-color: var(--ativo-fundo);
+  color: var(--ativo-texto);
 }
 
 .portfolio__grade {

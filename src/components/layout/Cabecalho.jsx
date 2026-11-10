@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, Phone, X } from 'lucide-react';
 import Logo from '../ui/Logo';
+import BotaoTema from '../ui/BotaoTema';
 import { navegacao } from '../../data/conteudo';
 import { empresa, linkWhatsApp } from '../../data/empresa';
 import './Cabecalho.css';
@@ -43,6 +44,8 @@ export default function Cabecalho() {
             ))}
           </ul>
         </nav>
+
+        <BotaoTema className="cabecalho__tema" />
 
         <a className="cabecalho__fone" href={linkWhatsApp()} target="_blank" rel="noopener noreferrer">
           <span className="cabecalho__fone-icone">

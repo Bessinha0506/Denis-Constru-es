@@ -1,13 +1,22 @@
 import './Logo.css';
 
-/** Marca Denis Construções: telhado em duas águas + paredes, em linguagem de diagonais. */
+/** Marca Denis Construções: a letra D levantada em tijolos, com um tijolo em destaque. */
 export default function Logo({ claro = false, className = '' }) {
   return (
     <span className={`logo ${claro ? 'logo--claro' : ''} ${className}`.trim()}>
-      <svg className="logo__marca" viewBox="0 0 32 30" aria-hidden="true">
-        <path className="logo__telhado" d="M0 13.5 16 1l16 12.5h-5.4L16 5.3 5.4 13.5z" />
-        <path className="logo__parede" d="M6.5 16h4.6v13H6.5zM20.9 16h4.6v13h-4.6z" />
-        <path className="logo__parede" d="M12.6 22.4 19.4 16v4.4l-6.8 6.4z" />
+      <svg className="logo__marca" viewBox="0 0 48 52" aria-hidden="true">
+        <g className="logo__tijolos">
+          <rect x="4" y="3" width="12" height="7" rx="1.5" />
+          <rect x="18" y="3" width="18" height="7" rx="1.5" />
+          <rect x="4" y="13" width="8" height="7" rx="1.5" />
+          <rect x="30" y="13" width="12" height="7" rx="1.5" />
+          <rect x="4" y="23" width="8" height="7" rx="1.5" />
+          <rect x="4" y="33" width="8" height="7" rx="1.5" />
+          <rect x="30" y="33" width="12" height="7" rx="1.5" />
+          <rect x="4" y="43" width="12" height="7" rx="1.5" />
+          <rect x="18" y="43" width="18" height="7" rx="1.5" />
+        </g>
+        <rect className="logo__destaque" x="34" y="23" width="10" height="7" rx="1.5" />
       </svg>
       <span className="logo__texto">
         <span className="logo__nome">Denis</span>
